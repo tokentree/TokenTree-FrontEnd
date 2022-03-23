@@ -38,5 +38,13 @@ cypress/fixtures/example.json
 .eslintcache
 .vercel
 
-
+# dependencies
 /node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
