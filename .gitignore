@@ -48,3 +48,4 @@ cypress/fixtures/example.json
 
 # production
 /build
+node_modules/
