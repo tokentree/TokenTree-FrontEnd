@@ -37,3 +37,6 @@ cypress/fixtures/example.json
 
 .eslintcache
 .vercel
+
+
+/node_modules
