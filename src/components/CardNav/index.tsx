@@ -1,26 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { ButtonMenu, ButtonMenuItem } from '@pancakeswap-libs/uikit'
+import { Link, useLocation } from 'react-router-dom'
 import useI18n from 'hooks/useI18n'
+import './index.css'
 
-const StyledNav = styled.div`
-  margin-bottom: 40px;
-`
-
-function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
+function Nav() {
+  const tab = useLocation().pathname.slice(1)
   const TranslateString = useI18n()
   return (
-    <StyledNav>
-      <ButtonMenu activeIndex={activeIndex} scale="sm" variant="subtle">
-        <ButtonMenuItem id="swap-nav-link" to="/swap" as={Link}>
+    <div className="tab__nav__container">
+      <div className="tab__nav">
+        <Link id="swap-nav-link" to="/swap" className={tab === 'swap' ? 'tab__active' : 'tab'}>
           {TranslateString(1142, 'Swap')}
-        </ButtonMenuItem>
-        <ButtonMenuItem id="pool-nav-link" to="/pool" as={Link}>
+        </Link>
+        <Link id="pool-nav-link" to="/pool" className={tab === 'pool' ? 'tab__active' : 'tab'}>
           {TranslateString(113, 'Liquidity')}
-        </ButtonMenuItem>
-      </ButtonMenu>
-    </StyledNav>
+        </Link>
+      </div>
+    </div>
   )
 }
 

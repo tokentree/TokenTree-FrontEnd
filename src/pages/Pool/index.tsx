@@ -55,8 +55,8 @@ export default function Pool() {
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
   return (
-    <>
-      <CardNav activeIndex={1} />
+    <div className="pool__component">
+      <CardNav />
       <AppBody>
         <PageHeader
           title={TranslateString(262, 'Liquidity')}
@@ -120,6 +120,6 @@ export default function Pool() {
           </CardBody>
         </AutoColumn>
       </AppBody>
-    </>
+    </div>
   )
 }

@@ -20,7 +20,7 @@ const InputRow = styled.div<{ selected: boolean }>`
 `
 const CurrencySelect = styled.button<{ selected: boolean }>`
   align-items: center;
-  height: 34px;
+  height: 40px;
   font-size: 16px;
   font-weight: 500;
   background-color: transparent;
@@ -53,6 +53,7 @@ const Aligner = styled.span`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #fff;
 `
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   display: flex;
@@ -63,9 +64,9 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   z-index: 1;
 `
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.input};
-  box-shadow: ${({ theme }) => theme.shadows.inset};
+  border-radius: 2px;
+  background-color: #fafafa;
+  box-shadow: inset 0px 2px 4px RGBA(0, 0, 0, 0.1);
 `
 interface CurrencyInputPanelProps {
   value: string

@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
@@ -24,12 +25,14 @@ const AppWrapper = styled.div`
   flex-flow: column;
   align-items: flex-start;
   overflow-x: hidden;
+  height: 100vh;
 `
 
 const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   padding: 32px 16px;
   align-items: center;
   flex: 1;
@@ -37,22 +40,31 @@ const BodyWrapper = styled.div`
   overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-  background-image: url('/images/group-pancake.svg');
   background-repeat: no-repeat;
   background-position: bottom 24px center;
-  background-size: 90%;
-
-  ${({ theme }) => theme.mediaQueries.xs} {
+  background-size: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(56, 203, 112, 0.5) 50%,
+    rgba(0, 212, 255, 0.5) 100%
+  );
+  background-image: url('../assets/circle-scatter-haikei.svg') ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/arch-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg'),
-      url('/images/left-pancake.svg'), url('/images/right-pancake.svg');
     background-repeat: no-repeat;
     background-position: center 420px, 10% 230px, 90% 230px;
     background-size: contain, 266px, 266px;
-    min-height: 90vh;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(56, 203, 112, 0.5) 50%,
+      rgba(0, 212, 255, 0.5) 100%
+    );
+    background: rgb(86, 171, 47);
+    background: linear-gradient(135deg, rgba(86, 171, 47, 1) 0%, rgba(168, 224, 99, 1) 100%);
   }
 `
 
@@ -95,7 +107,12 @@ export default function App() {
       <HashRouter>
         <AppWrapper>
           <LanguageContext.Provider
-            value={{ selectedLanguage, setSelectedLanguage: handleLanguageSelect, translatedLanguage, setTranslatedLanguage }}
+            value={{
+              selectedLanguage,
+              setSelectedLanguage: handleLanguageSelect,
+              translatedLanguage,
+              setTranslatedLanguage,
+            }}
           >
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               <Menu>
@@ -117,7 +134,6 @@ export default function App() {
                       <Route component={RedirectPathToSwapOnly} />
                     </Switch>
                   </Web3ReactManager>
-                  <Marginer />
                 </BodyWrapper>
               </Menu>
             </TranslationsContext.Provider>

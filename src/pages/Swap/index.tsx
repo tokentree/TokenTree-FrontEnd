@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
@@ -36,6 +37,7 @@ import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import AppBody from '../AppBody'
+import './index.css'
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -325,17 +327,17 @@ const Swap = () => {
               <AutoColumn justify="space-between">
                 <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
                   <ArrowWrapper clickable>
-                    <IconButton
-                      variant="tertiary"
+                    <button
+                      type="button"
+                      className="arrow__button__swap"
                       onClick={() => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ borderRadius: '50%' }}
-                      scale="sm"
+                      style={{ borderRadius: '50%', border: 'transparent' }}
                     >
                       <ArrowDownIcon color="primary" width="24px" />
-                    </IconButton>
+                    </button>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (
                     <LinkStyledButton id="add-recipient-button" onClick={() => onChangeRecipient('')}>

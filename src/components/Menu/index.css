@@ -1,0 +1,209 @@
+.menu__component {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.menu__navbar {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  transition: top 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 16px;
+  width: 100%;
+  height: 64px;
+  background-color: #fcfcfc;
+  /*border-bottom: solid 2px rgba(133, 133, 133, 0.1);*/
+  transform: translate3d(0, 0, 0);
+  box-shadow: 0px 2px 8px RGBA(0, 0, 0, 0.12);
+  z-index: 5;
+}
+.menu__navbar__logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.menu__navbar__logo img {
+  margin-left: 32px;
+  height: 32px;
+  width: 32px;
+}
+.menu__navbar__logo h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
+.menu__navbar__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.menu__network {
+  position: relative;
+  width: 150px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__network__button {
+  background-color: #fcfcfc;
+  padding: 8px 16px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-shadow: 0px 2px 8px RGBA(0, 0, 0, 0.12);
+  transition: all ease-in-out 0.15s;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.menu__network__button:hover {
+  box-shadow: 0px 4px 16px RGBA(0, 0, 0, 0.2);
+  transition: all ease-in-out 0.15s;
+}
+.menu__network__button svg {
+  height: 16px;
+  width: 16px;
+}
+
+.menu__network__options {
+  position: absolute;
+  top: 64px;
+  padding: 8px 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px RGBA(0, 0, 0, 0.12);
+  transition: all ease-in-out 0.15s;
+}
+
+.menu__network__options div {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+}
+.menu__network__options div:hover {
+  background-color: #f2f2f2;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.menu__connect__button__container {
+  position: relative;
+  width: 150px;
+}
+.menu__connect__button__container button {
+  background-color: green;
+  border: transparent;
+  color: #fff;
+  padding: 8px 16px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 100%;
+  box-shadow: 0px 2px 8px RGBA(0, 0, 0, 0.12);
+  transition: all ease-in-out 0.15s;
+}
+.menu__connect__button__container button:hover {
+  box-shadow: 0px 4px 16px RGBA(0, 0, 0, 0.2);
+  transition: all ease-in-out 0.15s;
+}
+
+.menu__profile__icon {
+  height: 64px;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.menu__profile__icon svg {
+  height: 32px;
+  width: 32px;
+  color: #333;
+}
+.menu__profile__menu {
+  position: absolute;
+  top: 64px;
+  right: 0px;
+  background-color: white;
+  box-shadow: 0px 2px 16px RGBA(0, 0, 0, 0.12);
+  padding: 16px;
+  width: 175px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.menu__profile__menu button {
+  border: transparent;
+  background-color: #fff;
+  font-size: 16px;
+  padding: 8px;
+}
+.menu__body {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: calc(100% - 64px);
+  top: 64px;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.menu__sidebar {
+  width: 250px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  background-color: #fcfcfc;
+  margin-top: 32px;
+}
+.menu__body__upper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70%;
+}
+
+.menu__body__upper div {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+}
+
+.menu__body__upper a,
+.menu__body__upper p {
+  margin: 0;
+  padding: 0;
+  margin: 8px 0;
+  font-size: 20px;
+  padding: 8px 16px;
+}
+
+.menu__body__children {
+  width: 100%;
+}

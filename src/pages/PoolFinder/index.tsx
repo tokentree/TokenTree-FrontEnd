@@ -81,7 +81,7 @@ export default function PoolFinder() {
 
   return (
     <>
-      <CardNav activeIndex={1} />
+      <CardNav />
       <AppBody>
         <FindPoolTabs />
         <CardBody>

@@ -1,0 +1,29 @@
+.tab__nav__container {
+  margin: 20px;
+  padding: 10px;
+}
+
+.tab__nav {
+  background-color: white;
+  padding: 8px 8px;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.tab__nav .tab {
+  width: 100px;
+  text-align: center;
+}
+
+
+.tab__nav .tab__active {
+  background-color: green;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 2px;
+  text-align: center;
+}

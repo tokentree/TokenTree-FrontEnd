@@ -4,7 +4,7 @@ import { escapeRegExp } from '../../utils'
 
 const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: string }>`
   color: ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.text)};
-  width: 0;
+  width: 100px;
   position: relative;
   font-weight: 500;
   outline: none;
