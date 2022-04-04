@@ -1,0 +1,160 @@
+@import "../theme/colors";
+
+.page__header {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 8px;
+  margin-bottom: 24px;
+  .page__header__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  .page__header__details {
+      flex: 1;
+      h2 {
+        font-size: 24px;
+        font-weight: 500;
+        color:#034a72;
+      }
+      p {
+        font-size: 14px;
+        color: #034a72;
+        margin-top: 8px;
+      }
+    }
+    button {
+      border: transparent;
+      background-color: transparent;
+      color: $primary-color-50;
+      height: 24px;
+      margin-left: 8px;
+    }
+  }
+  .page__header__child {
+    display: flex;
+    padding: 8px 0;
+  }
+}
+
+.settings__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+  .settings__details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .settings__options {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 16px;
+    padding: 16px 0;
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+    .settings__option {
+      padding: 0 4px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      button {
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        color: #333;
+        padding: 6px 12px;
+        box-shadow: 0px 1px 8px RGBA(0, 0, 0, 0.12);
+        transition: all ease-in-out 0.15s;
+        border-radius: 4px;
+        &:hover {
+          background-color: #eee;
+          transition: all ease-in-out 0.15s;
+          border-radius: 2px;
+        }
+      }
+      input {
+        border: none;
+        text-align: end;
+        background-color: #fafafa;
+        border-radius: 4px;
+        padding: 6px 12px;
+        box-shadow: inset 0px 1px 8px RGBA(0, 0, 0, 0.1);
+        font-size: 16px;
+        max-width: 100px;
+      }
+      p {
+        margin-left: 4px;
+      }
+    }
+  }
+  .settings__error {
+    color: darkred;
+    margin-top: 12px;
+  }
+}
+
+.transaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+  .transaction__details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .transaction__field {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    input {
+      border: none;
+      text-align: end;
+      background-color: #fafafa;
+      border-radius: 4px;
+      padding: 6px 12px;
+      box-shadow: inset 0px 1px 8px RGBA(0, 0, 0, 0.1);
+      font-size: 16px;
+      max-width: 100px;
+      margin-right: 12px;
+    }
+  }
+}
+
+.transaction__modal {
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 16px;
+  }
+  button {
+    border: none;
+    background-color: $primary-color;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-top: 12px;
+    border-radius: 4px;
+  }
+}

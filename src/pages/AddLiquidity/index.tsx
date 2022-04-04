@@ -289,7 +289,7 @@ export default function AddLiquidity({
 
   return (
     <>
-      <CardNav activeIndex={1} />
+      <CardNav/>
       <AppBody>
         <AddRemoveTabs adding />
         <Wrapper>

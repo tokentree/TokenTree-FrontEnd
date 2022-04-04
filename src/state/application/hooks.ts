@@ -3,6 +3,19 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useActiveWeb3React } from '../../hooks'
 import { addPopup, PopupContent, removePopup, toggleWalletModal, toggleSettingsMenu } from './actions'
 import { AppState } from '../index'
+import { useAppDispatch, useAppSelector } from "../hooks"
+import { ApplicationModal, setOpenModal } from './reducer'
+
+export function useModalOpen(modal: ApplicationModal): boolean {
+  const openModal = useAppSelector((state: AppState) => state.application.openModal)
+  return openModal === modal
+}
+
+export function useToggleModal(modal: ApplicationModal): () => void {
+  const open = useModalOpen(modal)
+  const dispatch = useAppDispatch()
+  return useCallback(() => dispatch(setOpenModal(open ? null : modal)), [dispatch, modal, open])
+}
 
 export function useBlockNumber(): number | undefined {
   const { chainId } = useActiveWeb3React()
@@ -54,5 +67,5 @@ export function useRemovePopup(): (key: string) => void {
 // get the list of active popups
 export function useActivePopups(): AppState['application']['popupList'] {
   const list = useSelector((state: AppState) => state.application.popupList)
-  return useMemo(() => list.filter(item => item.show), [list])
+  return useMemo(() => list.filter((item) => item.show), [list])
 }

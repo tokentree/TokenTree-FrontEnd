@@ -1,0 +1,30 @@
+@import "../theme/colors";
+.pool__component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+  a {
+    color: $primary-color;
+  }
+  #join-pool-button {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 8px 0;
+  }
+  #paragraph {
+    font-size: 18px;
+    padding: 8px 0;
+    color: $primary-color-50;
+  }
+  .pool__bottom__details {
+    p {
+      font-size: 14px;
+      padding: 8px;
+      color: $primary-color-50;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import '../theme/colors';
+
+.app__body {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  background-color: RGBA(255, 255, 255, 0.8);
+  border-radius: 4px;
+  box-shadow: 4px 4px 24px RGBA(0, 0, 0, 0.12);
+  padding: 16px;
+  backdrop-filter: blur(30px);
+
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  .app__body__container {
+    position: relative;
+  }
+  .swap__body {
+    padding: 4px;
+    .swap__inputs {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 4px;
+
+      .swap__change__button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 8px 0;
+      }
+    }
+  }
+}
+
+.arrow__button__swap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  background-color: #f2f2f2;
+
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all ease-in-out 0.12s;
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.37);
+    transition: all ease-in-out 0.12s;
+  }
+  &:active {
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.37);
+    transition: all ease-in-out 0.12s;
+  }
+}
+.arrow__button__swap svg {
+  fill: $primary-color;
+}
+
+.swap__card {
+  width: 100%;
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: transparent;
+  border-radius: 4px;
+  padding: .25rem .75rem 0 .75rem;
+  padding: 8px 4px;
+  p {
+    font-size: 14px;
+    color: $primary-color-50;
+  }
+}

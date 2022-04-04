@@ -1,0 +1,23 @@
+@import './pages/pool';
+@import './pages/swap';
+@import './pages/app';
+
+@import './components/menu';
+@import './components/pageHeader';
+@import './components/modal';
+@import './components/searchModal';
+@import './components/currencyInputPanel';
+@import './components/cardNav';
+@import './components/networkselector';
+
+.sc-gfarJg .gvecUI {
+  z-index: -1 !important;
+}
+
+//.body__wrapper div:last-of-type {
+//  z-index: 1;
+//}
+
+.body__wrapper #pool__component {
+  z-index: 10 !important;
+}

@@ -1,34 +1,11 @@
+/* eslint-disable spaced-comment */
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { Box, Button, Flex, Input, Text } from '@pancakeswap-libs/uikit'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
 
 const MAX_SLIPPAGE = 5000
 const RISKY_SLIPPAGE_LOW = 50
 const RISKY_SLIPPAGE_HIGH = 500
-
-const Option = styled.div`
-  padding: 0 4px;
-`
-
-const Options = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-
-  ${Option}:first-child {
-    padding-left: 0;
-  }
-
-  ${Option}:last-child {
-    padding-right: 0;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    flex-direction: row;
-  }
-`
 
 const predefinedValues = [
   { label: '0.1%', value: 0.1 },
@@ -74,54 +51,45 @@ const SlippageToleranceSettings = ({ translateString }: SlippageToleranceSetting
   }, [userSlippageTolerance, setError, translateString])
 
   return (
-    <Box mb="16px">
-      <Flex alignItems="center" mb="8px">
-        <Text bold>{translateString(88, 'Slippage tolerance')}</Text>
+    <div className="settings__container">
+      <div className="settings__details">
+        <p>{translateString(88, 'Slippage tolerance')}</p>
         <QuestionHelper
           text={translateString(
             186,
             'Your transaction will revert if the price changes unfavorably by more than this percentage.'
           )}
         />
-      </Flex>
-      <Options>
-        <Flex mb={['8px', '8px', 0]} mr={[0, 0, '8px']}>
-          {predefinedValues.map(({ label, value: predefinedValue }) => {
-            const handleClick = () => setValue(predefinedValue)
-
-            return (
-              <Option key={predefinedValue}>
-                <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
-                  {label}
-                </Button>
-              </Option>
-            )
-          })}
-        </Flex>
-        <Flex alignItems="center">
-          <Option>
-            <Input
+      </div>
+      <div className="settings__options">
+        {predefinedValues.map(({ label, value: predefinedValue }) => {
+          const handleClick = () => setValue(predefinedValue)
+          return (
+            <div className="settings__option" key={predefinedValue}>
+              <button type="button" onClick={handleClick}>
+                {label}
+              </button>
+            </div>
+          )
+        })}
+        <div>
+          <div className="settings__option">
+            <input
               type="number"
-              scale="lg"
+              //scale="lg"
               step={0.1}
               min={0.1}
               placeholder="5%"
               value={value}
               onChange={handleChange}
-              isWarning={error !== null}
+              //isWarning={error !== null}
             />
-          </Option>
-          <Option>
-            <Text fontSize="18px">%</Text>
-          </Option>
-        </Flex>
-      </Options>
-      {error && (
-        <Text mt="8px" color="failure">
-          {error}
-        </Text>
-      )}
-    </Box>
+            <p>%</p>
+          </div>
+        </div>
+      </div>
+      {error && <p className="settings__error">{error}</p>}
+    </div>
   )
 }
 

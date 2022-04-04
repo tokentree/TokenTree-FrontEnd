@@ -1,0 +1,21 @@
+.connect__button {
+  padding: 16px 16px;
+  border: transparent;
+  background-color: #0693E3;
+  color: #fff;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+  box-shadow: 0 2px 8px RGBA(0, 0, 0, 0.12);
+  transition: all ease-in-out 0.15s;
+  z-index: 20000;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.connect__button:hover {
+  box-shadow: 0 4px 16px RGBA(0, 0, 0, 0.2);
+  transition: all ease-in-out 0.15s;
+}
+
+

@@ -20,12 +20,12 @@ const InputRow = styled.div<{ selected: boolean }>`
 `
 const CurrencySelect = styled.button<{ selected: boolean }>`
   align-items: center;
-  height: 34px;
+  height: 40px;
   font-size: 16px;
   font-weight: 500;
   background-color: transparent;
   color: ${({ selected, theme }) => (selected ? theme.colors.text : '#FFFFFF')};
-  border-radius: 12px;
+  border-radius: 4px;
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -34,6 +34,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   :focus,
   :hover {
     background-color: ${({ theme }) => darken(0.05, theme.colors.input)};
+    background-color: RGBA(6,147,227,0.25);
   }
 `
 const LabelRow = styled.div`
@@ -53,19 +54,24 @@ const Aligner = styled.span`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #000;
+  font-weight: 400;
 `
 const InputPanel = styled.div<{ hideInput?: boolean }>`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
+  border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.background};
   z-index: 1;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 2px 8px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 `
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.input};
-  box-shadow: ${({ theme }) => theme.shadows.inset};
+  border-radius: 4px;
 `
 interface CurrencyInputPanelProps {
   value: string
@@ -128,7 +134,7 @@ export default function CurrencyInputPanel({
           {!hideInput && (
             <>
               <NumericalInput
-                className="token-amount-input"
+                className="token-amount-input currency__input"
                 value={value}
                 onUserInput={(val) => {
                   onUserInput(val)
@@ -157,18 +163,18 @@ export default function CurrencyInputPanel({
                 <CurrencyLogo currency={currency} size="24px" style={{ marginRight: '8px' }} />
               ) : null}
               {pair ? (
-                <Text id="pair">
+                <p id="pair" className="input__selector__p">
                   {pair?.token0.symbol}:{pair?.token1.symbol}
-                </Text>
+                </p>
               ) : (
-                <Text id="pair">
+                <p id="pair" className='input__selector__p'>
                   {(currency && currency.symbol && currency.symbol.length > 20
                     ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
                         currency.symbol.length - 5,
                         currency.symbol.length
                       )}`
                     : currency?.symbol) || TranslateString(1196, 'Select a currency')}
-                </Text>
+                </p>
               )}
               {!disableCurrencySelect && <ChevronDownIcon />}
             </Aligner>

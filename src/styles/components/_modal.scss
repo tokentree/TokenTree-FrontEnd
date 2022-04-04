@@ -1,0 +1,47 @@
+@import "../theme/colors";
+
+.modal__component {
+  background: $white;
+  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  z-index: 150;
+  overflow-y: auto;
+  width: auto;
+  min-width: 360px;
+  max-width: 100%;
+
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 12px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all ease-in-out 0.12s;
+  
+  .modal__header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e9eaeb;
+    align-items: center;
+    padding: 12px 24px;
+    .modal__title {
+      align-items: center;
+      flex: 1;
+      h2 {
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+    button {
+      border: transparent;
+      background-color: transparent;
+      color: $primary-color-50;
+    }
+  }
+  .modal__body {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+}

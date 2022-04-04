@@ -1,0 +1,36 @@
+.tab__nav__container {
+  margin: 20px;
+  padding: 10px;
+  width: 400px;
+}
+
+.tab__nav {
+  background-color: white;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 8px 8px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.tab__nav .tab {
+  width: 100px;
+  text-align: center;
+  width: 100%;
+}
+
+.tab__nav .tab__active {
+  background-color: #0693e3;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+}

@@ -1,10 +1,12 @@
+/* eslint-disable spaced-comment */
 import React, { useMemo } from 'react'
-import { CheckmarkCircleIcon, ErrorIcon, Flex, LinkExternal, Text, Modal, Button } from '@pancakeswap-libs/uikit'
+import { CheckmarkCircleIcon, ErrorIcon, LinkExternal } from '@pancakeswap-libs/uikit'
 import { useActiveWeb3React } from 'hooks'
 import { getBscScanLink } from 'utils'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
 import { TransactionDetails } from 'state/transactions/reducer'
 import Loader from 'components/Loader'
+import Modal from '../Modal/Modal'
 
 type RecentTransactionsModalProps = {
   onDismiss?: () => void
@@ -43,24 +45,20 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss, translateString
   return (
     <Modal title={translateString(1202, 'Recent transactions')} onDismiss={onDismiss}>
       {!account && (
-        <Flex justifyContent="center" flexDirection="column" alignItems="center">
-          <Text mb="8px" bold>
-            Please connect your wallet to view your recent transactions
-          </Text>
-          <Button variant="tertiary" scale="sm" onClick={onDismiss}>
+        <div className="transaction__modal">
+          <p>Please connect your wallet to view your recent transactions</p>
+          <button type="button" onClick={onDismiss}>
             Close
-          </Button>
-        </Flex>
+          </button>
+        </div>
       )}
       {account && chainId && sortedRecentTransactions.length === 0 && (
-        <Flex justifyContent="center" flexDirection="column" alignItems="center">
-          <Text mb="8px" bold>
-            No recent transactions
-          </Text>
-          <Button variant="tertiary" scale="sm" onClick={onDismiss}>
+        <div className="transaction__modal">
+          <p>No recent transactions</p>
+          <button type="button" onClick={onDismiss}>
             Close
-          </Button>
-        </Flex>
+          </button>
+        </div>
       )}
       {account &&
         chainId &&
@@ -70,12 +68,12 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss, translateString
 
           return (
             <>
-              <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
+              <div className="transaction__modal" key={hash}>
                 <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}>
                   {summary ?? hash}
                 </LinkExternal>
                 {icon}
-              </Flex>
+              </div>
             </>
           )
         })}

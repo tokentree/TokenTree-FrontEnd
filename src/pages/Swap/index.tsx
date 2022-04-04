@@ -1,3 +1,4 @@
+/* eslint-disable spaced-comment */
 import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
@@ -12,7 +13,7 @@ import CardNav from 'components/CardNav'
 import { AutoRow, RowBetween } from 'components/Row'
 import AdvancedSwapDetailsDropdown from 'components/swap/AdvancedSwapDetailsDropdown'
 import confirmPriceImpactWithoutFee from 'components/swap/confirmPriceImpactWithoutFee'
-import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper } from 'components/swap/styleds'
+import { ArrowWrapper, BottomGrouping, SwapCallbackError } from 'components/swap/styleds'
 import TradePrice from 'components/swap/TradePrice'
 import TokenWarningModal from 'components/TokenWarningModal'
 import SyrupWarningModal from 'components/SyrupWarningModal'
@@ -35,7 +36,7 @@ import Loader from 'components/Loader'
 import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
-import AppBody from '../AppBody'
+import SwapVertIcon from '@mui/icons-material/SwapVert'
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -286,8 +287,8 @@ const Swap = () => {
       />
       <SafeMoonWarningModal isOpen={transactionWarning.selectedToken === 'SAFEMOON'} onConfirm={handleConfirmWarning} />
       <CardNav />
-      <AppBody>
-        <Wrapper id="swap-page">
+      <div className="app__body">
+        <div className="app__body__container" id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
             trade={trade}
@@ -305,8 +306,8 @@ const Swap = () => {
             title={TranslateString(8, 'Exchange')}
             description={TranslateString(1192, 'Trade tokens in an instant')}
           />
-          <CardBody>
-            <AutoColumn gap="md">
+          <div className="swap__body">
+            <div className="swap__inputs">
               <CurrencyInputPanel
                 label={
                   independentField === Field.OUTPUT && !showWrap && trade
@@ -322,28 +323,24 @@ const Swap = () => {
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
               />
-              <AutoColumn justify="space-between">
-                <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
-                  <ArrowWrapper clickable>
-                    <IconButton
-                      variant="tertiary"
-                      onClick={() => {
-                        setApprovalSubmitted(false) // reset 2 step UI for approvals
-                        onSwitchTokens()
-                      }}
-                      style={{ borderRadius: '50%' }}
-                      scale="sm"
-                    >
-                      <ArrowDownIcon color="primary" width="24px" />
-                    </IconButton>
-                  </ArrowWrapper>
-                  {recipient === null && !showWrap && isExpertMode ? (
-                    <LinkStyledButton id="add-recipient-button" onClick={() => onChangeRecipient('')}>
-                      + Add a send (optional)
-                    </LinkStyledButton>
-                  ) : null}
-                </AutoRow>
-              </AutoColumn>
+              <div className="swap__change__button">
+                <button
+                  type="button"
+                  className="arrow__button__swap"
+                  onClick={() => {
+                    setApprovalSubmitted(false) // reset 2 step UI for approvals
+                    onSwitchTokens()
+                  }}
+                  style={{ borderRadius: '50%', border: 'transparent' }}
+                >
+                  <SwapVertIcon />
+                </button>
+                {recipient === null && !showWrap && isExpertMode ? (
+                  <LinkStyledButton id="add-recipient-button" onClick={() => onChangeRecipient('')}>
+                    + Add a send (optional)
+                  </LinkStyledButton>
+                ) : null}
+              </div>
               <CurrencyInputPanel
                 value={formattedAmounts[Field.OUTPUT]}
                 onUserInput={handleTypeOutput}
@@ -374,11 +371,11 @@ const Swap = () => {
               ) : null}
 
               {showWrap ? null : (
-                <Card padding=".25rem .75rem 0 .75rem" borderRadius="20px">
-                  <AutoColumn gap="4px">
+                <div className="swap__card">
+                  <div>
                     {Boolean(trade) && (
                       <RowBetween align="center">
-                        <Text fontSize="14px">{TranslateString(1182, 'Price')}</Text>
+                        <p>{TranslateString(1182, 'Price')}</p>
                         <TradePrice
                           price={trade?.executionPrice}
                           showInverted={showInverted}
@@ -388,14 +385,14 @@ const Swap = () => {
                     )}
                     {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
                       <RowBetween align="center">
-                        <Text fontSize="14px">{TranslateString(88, 'Slippage Tolerance')}</Text>
-                        <Text fontSize="14px">{allowedSlippage / 100}%</Text>
+                        <p>{TranslateString(88, 'Slippage Tolerance')}</p>
+                        <p>{allowedSlippage / 100}%</p>
                       </RowBetween>
                     )}
-                  </AutoColumn>
-                </Card>
+                  </div>
+                </div>
               )}
-            </AutoColumn>
+            </div>
             <BottomGrouping>
               {!account ? (
                 <ConnectWalletButton width="100%" />
@@ -481,9 +478,9 @@ const Swap = () => {
               {showApproveFlow && <ProgressSteps steps={[approval === ApprovalState.APPROVED]} />}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
             </BottomGrouping>
-          </CardBody>
-        </Wrapper>
-      </AppBody>
+          </div>
+        </div>
+      </div>
       <AdvancedSwapDetailsDropdown trade={trade} />
     </>
   )

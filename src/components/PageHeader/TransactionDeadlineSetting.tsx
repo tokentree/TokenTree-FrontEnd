@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { Input, Text, Flex, Box } from '@pancakeswap-libs/uikit'
 import { useUserDeadline } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
-
-const Field = styled.div`
-  align-items: center;
-  display: inline-flex;
-
-  & > ${Input} {
-    max-width: 100px;
-  }
-`
 
 type TransactionDeadlineSettingModalProps = {
   translateString: (translationId: number, fallback: string) => string
@@ -43,25 +32,19 @@ const TransactionDeadlineSetting = ({ translateString }: TransactionDeadlineSett
   }, [value, setError, setDeadline, translateString])
 
   return (
-    <Box mb="16px">
-      <Flex alignItems="center" mb="8px">
-        <Text bold>{translateString(90, 'Transaction deadline')}</Text>
+    <div className="transaction">
+      <div className="transaction__details">
+        <p>{translateString(90, 'Transaction deadline')}</p>
         <QuestionHelper
           text={translateString(188, 'Your transaction will revert if it is pending for more than this long.')}
         />
-      </Flex>
-      <Field>
-        <Input type="number" step="1" min="1" value={value} onChange={handleChange} />
-        <Text fontSize="14px" ml="8px">
-          Minutes
-        </Text>
-      </Field>
-      {error && (
-        <Text mt="8px" color="failure">
-          {error}
-        </Text>
-      )}
-    </Box>
+      </div>
+      <div className="transaction__field">
+        <input type="number" step="1" min="1" value={value} onChange={handleChange} />
+        <p>Minutes</p>
+      </div>
+      {error && <p>{error}</p>}
+    </div>
   )
 }
 
