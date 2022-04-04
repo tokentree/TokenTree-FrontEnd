@@ -4,6 +4,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState, useCallback, useRef } from 'react'
 import { useHistory } from 'react-router-dom'
+import ListIcon from '@mui/icons-material/List'
 import { CHAIN_INFO } from '../../constants/chaininfo'
 import { SupportedChainId, CHAIN_IDS_TO_NAMES } from '../../constants/chains'
 import useActiveWeb3React from '../../hooks/useActiveWeb3React'
@@ -18,7 +19,6 @@ const getChainNameFromId = (id) => {
   // casting here may not be right but fine to return undefined if it's not a supported chain ID
   return CHAIN_IDS_TO_NAMES[id] || ''
 }
-
 
 const Row = ({ targetChain, onSelectChain }) => {
   const { label, logoUrl } = CHAIN_INFO[targetChain]
@@ -80,16 +80,15 @@ const NetworkSelector = () => {
   return (
     <div className="network__selector">
       <div onClick={() => setOpen(!open)} className="network__selector__shown">
-        <img src={info?.logoUrl} alt="" />
-        <span>{info?.label || "Ethereum"}</span>
+        {info?.logoUrl ? <img src={info?.logoUrl} alt="" /> : <ListIcon />}
+        <span>{info?.label || 'Select Network'}</span>
       </div>
       {open && (
         <div className="network__selector__list">
           <h3>Select a Network</h3>
-          <Row targetChain={SupportedChainId.MAINNET} onSelectChain={handleChainSwitch} />
+          <Row targetChain={SupportedChainId.BSCMAINNET} onSelectChain={handleChainSwitch} />
           <Row targetChain={SupportedChainId.POLYGON} onSelectChain={handleChainSwitch} />
-          <Row targetChain={SupportedChainId.ARBITRUM_ONE} onSelectChain={handleChainSwitch} />
-          <Row targetChain={SupportedChainId.OPTIMISM} onSelectChain={handleChainSwitch} />
+          <Row targetChain={SupportedChainId.BSCTESTNET} onSelectChain={handleChainSwitch} />
         </div>
       )}
     </div>

@@ -13,11 +13,12 @@ import { useActiveWeb3React } from './index'
 export function useFetchListCallback(): (listUrl: string) => Promise<TokenList> {
   const { chainId, library } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
+  console.log(ChainId)
 
   const ensResolver = useCallback(
     (ensName: string) => {
-      if (!library || chainId !== ChainId.MAINNET) {
-        if (NETWORK_CHAIN_ID === ChainId.MAINNET) {
+      if (!library || chainId !== ChainId.BSCTESTNET) {
+        if (NETWORK_CHAIN_ID === ChainId.BSCTESTNET) {
           const networkLibrary = getNetworkLibrary()
           if (networkLibrary) {
             return resolveENSContentHash(ensName, networkLibrary)

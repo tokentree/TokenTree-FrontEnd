@@ -7,12 +7,15 @@ export enum SupportedChainId {
   RINKEBY = 4,
   GOERLI = 5,
   KOVAN = 42,
+  BSCTESTNET = 97,
+  BSCMAINNET = 56,
+  // LOCAL = 123123123,
 
   ARBITRUM_ONE = 42161,
   ARBITRUM_RINKEBY = 421611,
 
-  OPTIMISM = 10,
-  OPTIMISTIC_KOVAN = 69,
+  // OPTIMISM = 10,
+  // OPTIMISTIC_KOVAN = 69,
 
   POLYGON = 137,
   POLYGON_MUMBAI = 80001,
@@ -28,8 +31,11 @@ export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.POLYGON_MUMBAI]: 'polygon_mumbai',
   [SupportedChainId.ARBITRUM_ONE]: 'arbitrum',
   [SupportedChainId.ARBITRUM_RINKEBY]: 'arbitrum_rinkeby',
-  [SupportedChainId.OPTIMISM]: 'optimism',
-  [SupportedChainId.OPTIMISTIC_KOVAN]: 'optimistic_kovan',
+  // [SupportedChainId.OPTIMISM]: 'optimism',
+  // [SupportedChainId.OPTIMISTIC_KOVAN]: 'optimistic_kovan',
+  [SupportedChainId.BSCTESTNET]: 'bnb_test',
+  [SupportedChainId.BSCMAINNET]: 'bnb_main',
+  // [SupportedChainId.LOCAL]: 'local',
 }
 
 /**
@@ -42,7 +48,7 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = Object.values(Support
 export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   SupportedChainId.MAINNET,
   SupportedChainId.POLYGON,
-  SupportedChainId.OPTIMISM,
+  // SupportedChainId.OPTIMISM,
   SupportedChainId.ARBITRUM_ONE,
 ]
 
@@ -57,6 +63,8 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.KOVAN,
   SupportedChainId.POLYGON,
   SupportedChainId.POLYGON_MUMBAI,
+  SupportedChainId.BSCTESTNET,
+  SupportedChainId.BSCMAINNET,
 ] as const
 
 export type SupportedL1ChainId = typeof L1_CHAIN_IDS[number]
@@ -68,8 +76,8 @@ export type SupportedL1ChainId = typeof L1_CHAIN_IDS[number]
 export const L2_CHAIN_IDS = [
   SupportedChainId.ARBITRUM_ONE,
   SupportedChainId.ARBITRUM_RINKEBY,
-  SupportedChainId.OPTIMISM,
-  SupportedChainId.OPTIMISTIC_KOVAN,
+  // SupportedChainId.OPTIMISM,
+  // SupportedChainId.OPTIMISTIC_KOVAN,
 ] as const
 
 export type SupportedL2ChainId = typeof L2_CHAIN_IDS[number]
