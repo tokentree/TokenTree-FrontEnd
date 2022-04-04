@@ -1,4 +1,4 @@
-@import '../theme/colors';
+@import "../theme/colors";
 
 .body__wrapper {
   display: flex;
@@ -11,6 +11,7 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
+  z-index: 1;
   background-repeat: no-repeat;
   background-size: 100%;
   background-color: $white;
