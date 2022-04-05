@@ -289,10 +289,10 @@ export default function AddLiquidity({
 
   return (
     <>
-      <CardNav/>
-      <AppBody>
+      <CardNav />
+      <div  className="add__liquidity__body">
         <AddRemoveTabs adding />
-        <Wrapper>
+        <div>
           <TransactionConfirmationModal
             isOpen={showConfirm}
             onDismiss={handleDismissConfirmation}
@@ -439,8 +439,8 @@ export default function AddLiquidity({
               )}
             </AutoColumn>
           </CardBody>
-        </Wrapper>
-      </AppBody>
+        </div>
+      </div>
       {pair && !noLiquidity && pairState !== PairState.INVALID ? (
         <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>
           <MinimalPositionCard showUnwrapped={oneCurrencyIsWBNB} pair={pair} />

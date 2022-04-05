@@ -1,30 +1,47 @@
-@import "../theme/colors";
+@import '../theme/colors';
 
+.modal__component__wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 25;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all ease-in-out 0.12s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .modal__component {
+  min-height: 300px;
+  width: 400px !important;
   background: $white;
-  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #ddd;
   border-radius: 4px;
-  width: 100%;
   z-index: 150;
-  overflow-y: auto;
   width: auto;
-  min-width: 360px;
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 4px 12px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.35);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: all ease-in-out 0.12s;
-  
+
   .modal__header {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #e9eaeb;
     align-items: center;
     padding: 12px 24px;
+    width: 100%;
     .modal__title {
       align-items: center;
       flex: 1;
@@ -43,5 +60,72 @@
     display: flex;
     flex-direction: column;
     padding: 16px;
+    height: 100%;
+    width: 100%;
   }
 }
+
+.account__modal__component {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 300px;
+  align-items: flex-start;
+}
+.account__modal__account {
+  font-size: 16px;
+  margin: 16px 0;
+}
+
+.account__modal__copy {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  width: 100%;
+  button {
+    padding: 8px 16px;
+    color: #333;
+    background-color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    border: solid 1px $primary-color;
+  }
+}
+
+.account__modal__button {
+  padding: 8px 0;
+  height: 100%;
+  button {
+    border: transparent;
+    background-color: $primary-color;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 4px;
+  }
+}
+
+.connect__modal__button {
+  border: transparent;
+  background-color: transparent;
+  border: solid 1px #f2f2f2;
+  margin: 2px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4px 16px;
+  gap: 16px;
+  svg {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.connect__modal__link {
+  margin: 8px 4px;
+  margin-top: 24px;
+} 

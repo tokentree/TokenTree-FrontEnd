@@ -12,7 +12,7 @@ interface PageHeaderProps {
 
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
   const TranslateString = useI18n()
-  const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString} />)
+  const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString}/>)
   const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal translateString={TranslateString} />)
 
   return (
