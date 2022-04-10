@@ -1,4 +1,4 @@
-@import "../theme/colors";
+@import '../theme/colors';
 
 .page__header {
   border-bottom: 1px solid #ddd;
@@ -9,12 +9,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  .page__header__details {
+    .page__header__details {
       flex: 1;
       h2 {
-        font-size: 24px;
         font-weight: 500;
-        color:#034a72;
+        color: #034a72;
       }
       p {
         font-size: 14px;
@@ -142,7 +141,7 @@
 .transaction__modal {
   display: flex;
   flex-direction: column;
-  
+
   align-items: center;
   justify-content: center;
   p {

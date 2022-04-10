@@ -1,24 +1,19 @@
+/* eslint-disable react/jsx-filename-extension */
 /* eslint-disable spaced-comment */
 import React, { useMemo } from 'react'
 import { CheckmarkCircleIcon, ErrorIcon, LinkExternal } from '@pancakeswap-libs/uikit'
 import { useActiveWeb3React } from 'hooks'
 import { getBscScanLink } from 'utils'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
-import { TransactionDetails } from 'state/transactions/reducer'
 import Loader from 'components/Loader'
 import Modal from '../Modal/Modal'
-
-type RecentTransactionsModalProps = {
-  onDismiss?: () => void
-  translateString: (translationId: number, fallback: string) => string
-}
 
 // TODO: Fix UI Kit typings
 const defaultOnDismiss = () => null
 
-const newTransactionsFirst = (a: TransactionDetails, b: TransactionDetails) => b.addedTime - a.addedTime
+const newTransactionsFirst = (a, b) => b.addedTime - a.addedTime
 
-const getRowStatus = (sortedRecentTransaction: TransactionDetails) => {
+const getRowStatus = (sortedRecentTransaction) => {
   const { hash, receipt } = sortedRecentTransaction
 
   if (!hash) {
@@ -32,7 +27,7 @@ const getRowStatus = (sortedRecentTransaction: TransactionDetails) => {
   return { icon: <ErrorIcon color="failure" />, color: 'failure' }
 }
 
-const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss, translateString }: RecentTransactionsModalProps) => {
+const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss, translateString }) => {
   const { account, chainId } = useActiveWeb3React()
   const allTransactions = useAllTransactions()
 

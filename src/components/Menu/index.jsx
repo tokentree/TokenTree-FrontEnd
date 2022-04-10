@@ -17,9 +17,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import NightlightRoundIcon from '@mui/icons-material/NightlightRound'
 import NetworkSelector from './NetworkSelector'
-import Modal, { useModal } from '../Modal/Modal'
 import ConnectModal from './ConnectModal'
 import AccountModal from './AccountModal'
+import Logo from '../../assets/logo.svg'
 
 const Menu = (props) => {
   const { account } = useWeb3React()
@@ -56,11 +56,7 @@ const Menu = (props) => {
       <div className="menu__component">
         <nav className="menu__navbar">
           <div className="menu__navbar__logo">
-            <img
-              src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/tree.png"
-              alt="logo"
-            />
-            <h2>TokenTree</h2>
+            <img src={Logo} alt="logo" />
           </div>
           <div className="menu__navbar__buttons">
             <NetworkSelector />

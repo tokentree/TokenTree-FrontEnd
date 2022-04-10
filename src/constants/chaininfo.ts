@@ -185,6 +185,17 @@ export const CHAIN_INFO: ChainInfoMap = {
     logoUrl: 'https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=022',
     nativeCurrency: { name: 'BSCMAINNET', symbol: 'bnb', decimals: 18 },
   },
+  [SupportedChainId.LOCALNET]: {
+    networkType: NetworkType.L1,
+    blockWaitMsBeforeWarning: ms`10m`,
+    bridge: 'https://wallet.polygon.technology/bridge',
+    docs: 'https://polygon.io/',
+    explorer: 'https://mumbai.polygonscan.com/',
+    infoLink: 'https://info.uniswap.org/#/polygon/',
+    label: 'Local Net',
+    logoUrl: 'https://cryptologos.cc/logos/bnb-bnb-logo.svg?v=022',
+    nativeCurrency: { name: 'LOCALNET', symbol: 'bnb', decimals: 18 },
+  },
   //[SupportedChainId.ARBITRUM_ONE]: {
   //  networkType: NetworkType.L2,
   //  blockWaitMsBeforeWarning: ms`10m`,

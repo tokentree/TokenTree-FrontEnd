@@ -3,18 +3,6 @@
 import React from 'react'
 import Modal from '../Modal/Modal'
 import config, { connectorLocalStorageKey, connectors } from './config'
-import { Login, Config } from './types'
-
-//interface Props {
-//  login: Login
-//  onDismiss?: () => void
-//}
-//interface Props2 {
-//  walletConfig: Config
-//  login: Login
-//  mb: string
-//  onDismiss: () => void
-//}
 
 const WalletCard = ({ login, walletConfig, onDismiss, setOpen }) => {
   const { title, icon: Icon } = walletConfig
@@ -30,8 +18,8 @@ const WalletCard = ({ login, walletConfig, onDismiss, setOpen }) => {
       type="button"
       id={`wallet-connect-${title.toLocaleLowerCase()}`}
     >
-      <p>{title}</p>
       <Icon />
+      <p>{title}</p>
     </button>
   )
 }
@@ -48,12 +36,6 @@ const ConnectModal = ({ login, onDismiss = () => null, setOpen }) => (
         setOpen={setOpen}
       />
     ))}
-    <a
-      href="https://docs.pancakeswap.finance/guides/faq#how-do-i-set-up-my-wallet-on-binance-smart-chain"
-      className="connect__modal__link"
-    >
-      Learn how to connect
-    </a>
   </Modal>
 )
 

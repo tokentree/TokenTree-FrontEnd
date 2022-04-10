@@ -17,7 +17,6 @@
     height: 64px;
     background-color: transparent;
     transform: translate3d(0, 0, 0);
-    //box-shadow: 0px 2px 8px RGBA(0, 0, 0, 0.12);
     background-color: #fff;
     z-index: 1;
     .menu__navbar__logo {
@@ -28,8 +27,7 @@
       gap: 12px;
       img {
         margin-left: 32px;
-        height: 32px;
-        width: 32px;
+        height: 36px;
       }
       h2 {
         font-size: 22px;
@@ -52,7 +50,6 @@
       }
       .menu__network__button {
         background-color: #fcfcfc;
-
         padding: 8px 16px;
         height: 36px;
         display: grid;

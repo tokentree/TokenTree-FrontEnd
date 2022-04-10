@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { HelpCircle as Question } from 'react-feather'
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import styled from 'styled-components'
 import Tooltip from '../Tooltip'
 
@@ -13,8 +13,7 @@ const QuestionWrapper = styled.div`
   outline: none;
   cursor: default;
   border-radius: 36px;
-  background-color: ${({ theme }) => theme.colors.invertedContrast};
-  color: ${({ theme }) => theme.colors.textSubtle};
+  color: #333;
 
   :hover,
   :focus {
@@ -32,7 +31,7 @@ export default function QuestionHelper({ text }: { text: string }) {
     <span style={{ marginLeft: 4 }}>
       <Tooltip text={text} show={show}>
         <QuestionWrapper onClick={open} onMouseEnter={open} onMouseLeave={close}>
-          <Question size={16} />
+          <HelpOutlineIcon />
         </QuestionWrapper>
       </Tooltip>
     </span>

@@ -37,7 +37,7 @@ export const SearchInput = styled.input`
   border: none;
   outline: none;
   border-radius: 4px;
-  color: ${({ theme }) => theme.colors.text};
+  color: #333;
   border-style: solid;
   border: 1px solid #ddd;
   -webkit-appearance: none;
@@ -49,7 +49,7 @@ export const SearchInput = styled.input`
   }
   transition: border 100ms;
   :focus {
-    border: 1px solid #0693e3;
+    border: 1px solid #333;
     outline: none;
   }
 `

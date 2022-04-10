@@ -114,10 +114,10 @@ function CurrencyRow({
     >
       <CurrencyLogo currency={currency} size="24px" />
       <Column>
-        <Text title={currency.name}>{currency.symbol}</Text>
+        <p title={currency.name}>{currency.symbol}</p>
         <FadedSpan>
           {!isOnSelectedList && customAdded && !(currency instanceof WrappedTokenInfo) ? (
-            <Text>
+            <p>
               Added by user
               <LinkStyledButton
                 onClick={(event) => {
@@ -127,10 +127,10 @@ function CurrencyRow({
               >
                 (Remove)
               </LinkStyledButton>
-            </Text>
+            </p>
           ) : null}
           {!isOnSelectedList && !customAdded && !(currency instanceof WrappedTokenInfo) ? (
-            <Text>
+            <p>
               Found by address
               <LinkStyledButton
                 onClick={(event) => {
@@ -140,7 +140,7 @@ function CurrencyRow({
               >
                 (Add)
               </LinkStyledButton>
-            </Text>
+            </p>
           ) : null}
         </FadedSpan>
       </Column>

@@ -9,6 +9,7 @@ export enum SupportedChainId {
   KOVAN = 42,
   BSCTESTNET = 97,
   BSCMAINNET = 56,
+  LOCALNET= 97,
   // LOCAL = 123123123,
 
   ARBITRUM_ONE = 42161,
@@ -35,6 +36,7 @@ export const CHAIN_IDS_TO_NAMES = {
   // [SupportedChainId.OPTIMISTIC_KOVAN]: 'optimistic_kovan',
   [SupportedChainId.BSCTESTNET]: 'bnb_test',
   [SupportedChainId.BSCMAINNET]: 'bnb_main',
+  [SupportedChainId.LOCALNET]: 'local_net',
   // [SupportedChainId.LOCAL]: 'local',
 }
 
@@ -65,6 +67,7 @@ export const L1_CHAIN_IDS = [
   SupportedChainId.POLYGON_MUMBAI,
   SupportedChainId.BSCTESTNET,
   SupportedChainId.BSCMAINNET,
+  SupportedChainId.LOCALNET,
 ] as const
 
 export type SupportedL1ChainId = typeof L1_CHAIN_IDS[number]

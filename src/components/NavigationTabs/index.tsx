@@ -17,10 +17,11 @@ const Tabs = styled.div`
 const ActiveText = styled.div`
   font-weight: 500;
   font-size: 20px;
+  color: #333;
 `
 
 const StyledArrowLeft = styled(ArrowLeft)`
-  color: ${({ theme }) => theme.colors.text};
+  color: #333;
 `
 
 export function FindPoolTabs() {
