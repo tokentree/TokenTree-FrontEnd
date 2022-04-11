@@ -86,33 +86,35 @@ export default function PoolFinder() {
         <FindPoolTabs />
         <CardBody>
           <AutoColumn gap="md">
-            <Button
+            <button
+              type="button"
               onClick={() => {
                 setShowSearch(true)
                 setActiveField(Fields.TOKEN0)
               }}
-              startIcon={currency0 ? <CurrencyLogo currency={currency0} style={{ marginRight: '.5rem' }} /> : null}
-              endIcon={<ChevronDownIcon width="24px" color="white" />}
-              width="100%"
+              className="button--primary"
             >
+              {currency0 ? <CurrencyLogo currency={currency0} style={{ marginRight: '.5rem' }} /> : null}
               {currency0 ? currency0.symbol : TranslateString(82, 'Select a Token')}
-            </Button>
+              <ChevronDownIcon width="24px" color="white" />
+            </button>
 
             <ColumnCenter>
-              <AddIcon color="textSubtle" />
+              <AddIcon color="#333" />
             </ColumnCenter>
 
-            <Button
+            <button
+              type="button"
+              className="button--primary"
               onClick={() => {
                 setShowSearch(true)
                 setActiveField(Fields.TOKEN1)
               }}
-              startIcon={currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem' }} /> : null}
-              endIcon={<ChevronDownIcon width="24px" color="white" />}
-              width="100%"
             >
+              {currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem' }} /> : null}
               {currency1 ? currency1.symbol : TranslateString(82, 'Select a Token')}
-            </Button>
+              <ChevronDownIcon width="24px" color="white" />
+            </button>
 
             {hasPosition && (
               <ColumnCenter

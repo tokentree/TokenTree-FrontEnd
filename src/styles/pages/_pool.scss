@@ -1,10 +1,10 @@
-@import "../theme/colors";
+@import '../theme/colors';
 .pool__component {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  
+
   a {
     color: $primary-color;
   }

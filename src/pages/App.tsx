@@ -28,7 +28,7 @@ const AppWrapper = styled.div`
   height: 100vh;
 `
 
-const CACHE_KEY = 'pancakeSwapLanguage'
+const CACHE_KEY = 'tokenTreeLanguage'
 
 export default function App() {
   const [selectedLanguage, setSelectedLanguage] = useState<any>(undefined)

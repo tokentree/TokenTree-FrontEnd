@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
-import CoinLogo from '../pancake/CoinLogo'
+import CoinLogo from '../CoinLogo/CoinLogo'
 
 const getTokenLogoURL = (address: string) =>
   `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/assets/${address}/logo.png`
@@ -30,7 +30,7 @@ export default function CurrencyLogo({
   size?: string
   style?: React.CSSProperties
 }) {
-  const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.logoURI : undefined)
+  const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? currency.tokenInfo.logoURI : undefined)
 
   const srcs: string[] = useMemo(() => {
     if (currency === ETHER) return []

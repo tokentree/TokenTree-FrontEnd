@@ -1,8 +1,9 @@
+/* eslint-disable import/extensions */
 import React, { ReactNode } from 'react'
 import { useModal, TuneIcon, HistoryIcon } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
-import SettingsModal from './SettingsModal'
-import RecentTransactionsModal from './RecentTransactionsModal'
+import SettingsModal from './SettingsModal.jsx'
+import RecentTransactionsModal from './RecentTransactionsModal.jsx'
 
 interface PageHeaderProps {
   title: ReactNode
@@ -12,7 +13,7 @@ interface PageHeaderProps {
 
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
   const TranslateString = useI18n()
-  const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString} />)
+  const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString}/>)
   const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal translateString={TranslateString} />)
 
   return (

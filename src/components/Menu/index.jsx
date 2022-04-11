@@ -6,7 +6,6 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable spaced-comment */
 import React, { useRef, useEffect, useState } from 'react'
-import { useWalletModal } from '@pancakeswap-libs/uikit'
 import { useWeb3React } from '@web3-react/core'
 import useGetLocalProfile from 'hooks/useGetLocalProfile'
 import useAuth from 'hooks/useAuth'
@@ -17,6 +16,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import NightlightRoundIcon from '@mui/icons-material/NightlightRound'
 import NetworkSelector from './NetworkSelector'
+import ConnectModal from './ConnectModal'
+import AccountModal from './AccountModal'
+import Logo from '../../assets/logo.svg'
 
 const Menu = (props) => {
   const { account } = useWeb3React()
@@ -24,7 +26,6 @@ const Menu = (props) => {
   const profile = useGetLocalProfile()
 
   const refPrevOffset = useRef(window.pageYOffset)
-  //const [networkOpen, setNetworkOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
 
   const ariaLabel = 'Link to profile'
@@ -46,74 +47,77 @@ const Menu = (props) => {
     }
   }, [])
 
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(login, logout, account)
   const accountEllipsis = account ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}` : null
+  const [open, setOpen] = useState('')
 
   return (
-    <div className="menu__component">
-      <nav className="menu__navbar">
-        <div className="menu__navbar__logo">
-          <img src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/512x512/tree.png" alt="logo" />
-          <h2>TokenTree</h2>
-        </div>
-
-        <div className="menu__navbar__buttons">
-          <NetworkSelector />
-          <div className="menu__connect__button__container">
-            {account ? (
-              <button
-                onClick={() => {
-                  onPresentAccountModal()
-                }}
-              >
-                {accountEllipsis}
-              </button>
-            ) : (
-              <button
-                scale="sm"
-                onClick={() => {
-                  onPresentConnectModal()
-                }}
-              >
-                Connect
-              </button>
-            )}
+    <>
+      <div className="menu__component">
+        <nav className="menu__navbar">
+          <div className="menu__navbar__logo">
+            <img src={Logo} alt="logo" />
           </div>
-          {profile && (
-            <div
-              title={profile.username}
-              className="menu__profile__icon"
-              onMouseEnter={() => setProfileOpen(true)}
-              onMouseLeave={() => setProfileOpen(false)}
-            >
-              <Link to="/" aria-label={ariaLabel}>
-                {icon}
-              </Link>
-              {profile.showPip && <div />}
-              {profileOpen && (
-                <div className="menu__profile__menu">
-                  <div>
-                    <button>
-                      <LightModeIcon />
-                    </button>
-                    /
-                    <button disabled>
-                      <NightlightRoundIcon />
-                    </button>
-                  </div>
-                  <button>
-                    <LanguageIcon /> En
-                  </button>
-                </div>
+          <div className="menu__navbar__buttons">
+            <NetworkSelector />
+            <div className="menu__connect__button__container">
+              {account ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen('account')
+                  }}
+                >
+                  {accountEllipsis}
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen('connect')
+                  }}
+                >
+                  Connect
+                </button>
               )}
             </div>
-          )}
+            {profile && (
+              <div
+                title={profile.username}
+                className="menu__profile__icon"
+                onMouseEnter={() => setProfileOpen(true)}
+                onMouseLeave={() => setProfileOpen(false)}
+              >
+                <Link to="/" aria-label={ariaLabel}>
+                  {icon}
+                </Link>
+                {profile.showPip && <div />}
+                {profileOpen && (
+                  <div className="menu__profile__menu">
+                    <div>
+                      <button>
+                        <LightModeIcon />
+                      </button>
+                      /
+                      <button disabled>
+                        <NightlightRoundIcon />
+                      </button>
+                    </div>
+                    <button>
+                      <LanguageIcon /> En
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </nav>
+        <div className="menu__body">
+          <div className="menu__body__children">{props.children}</div>
         </div>
-      </nav>
-      <div className="menu__body">
-        <div className="menu__body__children">{props.children}</div>
       </div>
-    </div>
+      {open === 'connect' && <ConnectModal login={login} setOpen={setOpen} />}
+      {open === 'account' && <AccountModal account={account || ''} logout={logout} setOpen={setOpen} />}
+    </>
   )
 }
 
