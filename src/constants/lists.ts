@@ -33,7 +33,6 @@ const DEFAULT_LIST_OF_LISTS_TO_DISPLAY: string[] = [
   ROLL_LIST,
   // ARBITRUM_LIST,
   // OPTIMISM_LIST,
-
 ]
 
 export const DEFAULT_LIST_OF_LISTS: string[] = [

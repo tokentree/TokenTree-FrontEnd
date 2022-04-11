@@ -1,5 +1,4 @@
 import React from 'react'
-import { Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { RowFixed } from '../Row'
 

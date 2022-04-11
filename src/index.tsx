@@ -1,7 +1,5 @@
 import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
-import { ResetCSS } from '@pancakeswap-libs/uikit'
-import GlobalStyle from './style/Global'
 import App from './pages/App'
 import ApplicationUpdater from './state/application/updater'
 import ListsUpdater from './state/lists/updater'
@@ -31,8 +29,6 @@ ReactDOM.render(
         <MulticallUpdater />
         <ToastListener />
       </>
-      <ResetCSS />
-      <GlobalStyle />
       <App />
     </Providers>
   </StrictMode>,

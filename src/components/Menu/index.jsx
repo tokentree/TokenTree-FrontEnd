@@ -6,7 +6,6 @@
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable spaced-comment */
 import React, { useRef, useEffect, useState } from 'react'
-//import { useWalletModal } from '@pancakeswap-libs/uikit'
 import { useWeb3React } from '@web3-react/core'
 import useGetLocalProfile from 'hooks/useGetLocalProfile'
 import useAuth from 'hooks/useAuth'
